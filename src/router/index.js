@@ -10,6 +10,11 @@ const routes = [
     component: () => import("../components/LoginForm"),
   },
   {
+    path: "/top",
+    name: "topForm",
+    component: () => import("../components/TopForm"),
+  },
+  {
     path: "/create",
     name: "createUsers",
     component: () => import("../components/CreateUsers"),
