@@ -10,9 +10,9 @@ const routes = [
     component: () => import("../components/LoginForm"),
   },
   {
-    path: "/top",
-    name: "topForm",
-    component: () => import("../components/TopForm"),
+    path: "/editor",
+    name: "EditorForm",
+    component: () => import("../components/EditorForm"),
   },
   {
     path: "/create",

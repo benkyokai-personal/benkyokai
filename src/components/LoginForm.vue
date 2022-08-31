@@ -39,11 +39,10 @@ export default {
         .then((userCredential) => {
           const user = userCredential.user;
           console.log("create user success." + user);
-          // ★成功レスポンスだった場合は『this.$router.push('/top')』で遷移します
-          this.$router.push("/top");
+          this.$router.push("/editor");
         })
         .catch((error) => {
-          this.$router.push("/top");
+          this.$router.push("/editor");
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log("errorCode: " + errorCode);
