@@ -1,21 +1,12 @@
 <template>
-  <div>
-    <EditorParts></EditorParts>
-    <ButtonParts></ButtonParts>
-  </div>
+  <v-btn color="primary" @click="execProgram">実行</v-btn>
 </template>
 
 <script>
-import EditorParts from "@/components/editor/EditorParts";
-import ButtonParts from "@/components/editor/ButtonParts";
 import axios from "axios";
 
 export default {
-  name: "EditorForm",
-  components: {
-    EditorParts,
-    ButtonParts,
-  },
+  name: "ButtonParts",
   methods: {
     methods: {
       execProgram() {

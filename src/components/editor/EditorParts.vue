@@ -1,15 +1,15 @@
 <template>
-  <div ref="ace" class="ace"></div>
+  <div style="height: 500px">
+    <div ref="ace" class="ace"></div>
+  </div>
 </template>
 
 <script>
 import ace from "ace-builds";
 import "ace-builds/webpack-resolver";
 
-// 使いたい言語モードのインポート
 import "ace-builds/src-noconflict/mode-javascript";
 
-// 使いたいテーマのインポート
 import "ace-builds/src-noconflict/theme-github";
 
 export default {
@@ -33,7 +33,7 @@ export default {
   position: relative !important;
   border: 1px solid lightgray;
   margin: auto;
-  height: 50%;
+  height: 100%;
   width: 100%;
 }
 </style>
