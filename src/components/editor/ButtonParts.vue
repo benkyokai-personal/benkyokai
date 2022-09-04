@@ -1,5 +1,10 @@
 <template>
-  <v-btn color="primary" @click="execProgram">実行</v-btn>
+  <div>
+    <v-btn color="primary" @click="execProgram">実行</v-btn>
+    <v-textarea solo background-color="black">
+      {{ result }}
+    </v-textarea>
+  </div>
 </template>
 
 <script>
@@ -11,6 +16,7 @@ export default {
     return {
       editor: this.$store.state.editor,
       id: "",
+      result: "",
     };
   },
   methods: {
@@ -41,8 +47,15 @@ export default {
       const result = await axios.get(
         `http://api.paiza.io/runners/get_details/?id=${this.id}&api_key=guest`
       );
+      this.result = result.data.stdout;
       console.log(result);
     },
   },
 };
 </script>
+
+<style>
+textarea {
+  color: white !important;
+}
+</style>
