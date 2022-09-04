@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 500px">
+  <div style="height: 500px" id="editor">
     <div ref="ace" class="ace"></div>
   </div>
 </template>
@@ -16,13 +16,30 @@ export default {
   name: "EditorParts",
   data() {
     return {
-      editor: Object,
+      editor: this.$store.state.editor,
     };
   },
   mounted() {
     this.editor = ace.edit(this.$refs.ace);
+    this.editor.setOptions({
+      enableBasicAutocompletion: true,
+      enableSnippets: true,
+      enableLiveAutocompletion: true,
+    });
     this.editor.session.setMode("ace/mode/javascript");
     this.editor.setTheme("ace/theme/monokai");
+    this.$store.commit("bindEditor", this.editor);
+    console.log(this.editor);
+  },
+  computed: {
+    bindEditor: {
+      get() {
+        return this.$store.state.editor;
+      },
+      set(value) {
+        this.$store.commit("bindEditor", value);
+      },
+    },
   },
 };
 </script>

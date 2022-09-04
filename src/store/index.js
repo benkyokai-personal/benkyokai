@@ -4,9 +4,15 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
+  state: {
+    editor: Object,
+  },
   getters: {},
-  mutations: {},
+  mutations: {
+    bindEditor(state, editor) {
+      state.editor = editor;
+    },
+  },
   actions: {},
   modules: {},
 });
