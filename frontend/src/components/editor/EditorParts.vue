@@ -8,9 +8,11 @@
 import ace from "ace-builds";
 import "ace-builds/webpack-resolver";
 
-import "ace-builds/src-noconflict/mode-javascript";
+import "ace-builds/src-noconflict/mode-python";
 
 import "ace-builds/src-noconflict/theme-github";
+
+import "ace-builds/src-noconflict/ext-language_tools";
 
 export default {
   name: "EditorParts",
@@ -26,20 +28,9 @@ export default {
       enableSnippets: true,
       enableLiveAutocompletion: true,
     });
-    this.editor.session.setMode("ace/mode/javascript");
+    this.editor.session.setMode("ace/mode/python");
     this.editor.setTheme("ace/theme/monokai");
     this.$store.commit("bindEditor", this.editor);
-    console.log(this.editor);
-  },
-  computed: {
-    bindEditor: {
-      get() {
-        return this.$store.state.editor;
-      },
-      set(value) {
-        this.$store.commit("bindEditor", value);
-      },
-    },
   },
 };
 </script>

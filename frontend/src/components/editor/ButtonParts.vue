@@ -1,9 +1,7 @@
 <template>
   <div>
-    <v-btn color="primary" @click="execProgram">実行</v-btn>
-    <v-textarea solo background-color="black">
-      {{ result }}
-    </v-textarea>
+    <v-btn color="primary" @click="execProgram" class="exec-button">実行</v-btn>
+    <v-textarea solo background-color="black" :value="result"> </v-textarea>
   </div>
 </template>
 
@@ -21,12 +19,13 @@ export default {
   },
   methods: {
     async execProgram() {
+      const language = this.$store.state.language;
       this.editor = this.$store.state.editor;
       console.log(this.editor.getValue());
       const res = await axios.post("http://api.paiza.io/runners/create", {
         source_code: this.editor.getValue(),
-        language: "javascript",
-        input: "",
+        language: language,
+        input: "1",
         longpoll: "",
         longpoll_timeout: "",
         api_key: "guest",
@@ -57,5 +56,9 @@ export default {
 <style>
 textarea {
   color: white !important;
+}
+
+.exec-button {
+  margin: 10px 0px;
 }
 </style>
